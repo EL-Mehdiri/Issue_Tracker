@@ -29,8 +29,12 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
     const onSubmit = handleSubmit(async (data) => {
         try {
             setisSubmited(true)
-            await axios.post('/api/issues', data)
+            if (issue)
+                await axios.patch('/api/issues/' + issue.id, data)
+            else
+                await axios.post('/api/issues', data)
             router.push('/issues')
+            router.refresh()
         } catch (error) {
             setisSubmited(false)
             setError('an unexpected error occurred.')
@@ -61,7 +65,7 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
                 />
                 <ErrorMessage>{errors.description?.message}</ErrorMessage>
 
-                <Button disabled={isSubmited}>Submit New Issue {isSubmited && <Spinner />}</Button>
+                <Button disabled={isSubmited}>{issue ? 'Update Issue' : 'Submit New Issue '}{'  '}{isSubmited && <Spinner />}</Button>
             </form>
         </div>
     )
