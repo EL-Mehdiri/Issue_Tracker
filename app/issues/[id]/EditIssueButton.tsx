@@ -7,7 +7,7 @@ import React from 'react'
 const EditIssueButton = ({ issueId }: { issueId: string }) => {
     return (
         <Button><Pencil2Icon />
-            <Link href={`/issues/${issueId}/edit`}>
+            <Link href={`/issues/edit/${issueId}`}>
                 Edit Issue
             </Link>
         </Button>
