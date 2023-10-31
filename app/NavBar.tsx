@@ -30,7 +30,7 @@ const NavBar = () => {
                 ))}
 
             </ul>
-            <Box>
+            <Box >
                 {status === 'authenticated' &&
                     <Link href='/api/auth/signout'>Log Out</Link>}
                 {status === 'unauthenticated' &&
