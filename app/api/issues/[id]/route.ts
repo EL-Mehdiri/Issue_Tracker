@@ -33,7 +33,6 @@ export async function PATCH(request: NextRequest,
 
     return NextResponse.json(updateIssue)
 }
-
 export async function DELETE(request: NextRequest,
     { params }: { params: { id: string } }) {
     const session = await getServerSession(authOption)
