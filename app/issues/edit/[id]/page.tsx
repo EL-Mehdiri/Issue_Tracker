@@ -25,4 +25,6 @@ const EditIssuePage = async ({ params: { id } }: Props) => {
     )
 }
 
+
+
 export default EditIssuePage
